@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for ('static',filename='mystyle.css')}}"> 
+    <title>Detect Ham Or Spam Message</title>
+</head>
+<body>
+    <div class="root">
+        <h1 class="header">Welcome To My Ham - Spam Text Detector</h1>
+        <form method="POST" action="/" class="form">
+            <!-- <input 
+                type="text" 
+                name="message" 
+                required 
+                multiple 
+                class="in_si" 
+                placeholder="Write Message"    
+            /> -->
+            <textarea 
+                name="message" 
+                rows="5" 
+                required 
+                class="in_si"
+                placeholder="Write Message"
+            ></textarea>
+            <input 
+                type="submit"  
+                value="Check Message"
+                class="btn"  
+            />
+        </form>
+        <h2 style="text-align: center;">{{txt}}</h2>
+        {% if(hamorspam=="Ham") %}
+            <h1 style="color: green;">{{hamorspam}}</h1>
+        {% else %}
+            <h1 style="color: red;">{{hamorspam}}</h1>
+        {% endif %}
+    </div>
+</body>
+</html>
